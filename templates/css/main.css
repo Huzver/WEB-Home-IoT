@@ -1,0 +1,196 @@
+/*
+
+Общие CSS стили
+
+*/
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+	color: #000000;
+	font-weight: 400;
+	background-color: #EDEEF0;
+}
+table, center, div, tr, td {
+	margin: 0px;
+	padding: 0px;
+}
+img {
+	border: none;
+}
+input, input:focus, textarea, textarea:focus {
+	outline: none !important;
+}
+a {
+	text-decoration: none;
+	color: #2781b4;
+}
+.button {
+	display: inline-block;
+	cursor: pointer;
+	margin-right: -4px;
+	padding: 7px 16px 8px;
+	background-color: #2781b4;
+	color: #ffffff;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	white-space: nowrap;
+	outline: none;
+	box-sizing: border-box;
+	transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+}
+.button:hover {
+	background-color: #3791c3;
+}
+.button.button-height-35 {
+	font-size: 14px;
+	line-height: 20px;
+}
+.button.button-height-40 {
+	font-size: 20px;
+    line-height: 28px;
+}
+.button input {
+	display: none;
+}
+.button.green {
+	background-color: #62a757;
+}
+.button:hover.green {
+	background-color: #6cad62;
+}
+.button.red {
+	background-color: #bd2c2c;
+}
+.button.grey {
+	background-color: #677576;
+}
+.button.brown {
+	background-color: #463c33;
+}
+
+.login-body {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	background-image: url(/templates/images/backgrounds/main.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+.login-body .login-box {
+	width: 500px;
+	height: 280px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-image: url(/templates/images/backgrounds/alpha_white.png);
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+}
+.login-body .login-box .login-main {
+	position: relative;
+	margin: 10px;
+}
+.login-main .logo {
+	position: absolute;
+	top: -125px;
+	left: 0px;
+	width: 461px;
+	height: 131px;
+	background-image: url(/templates/images/logo-big.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.login-main .login-copy {
+	font-family: verdana;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 10px;
+	color: #6d6d6d;
+}
+.login-main .title {
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	color: #333333;
+	text-align: center;
+}
+.login-label {
+	display: block;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+.login-label input {
+    width: 440px;
+    font-size: 14px;
+    padding: 6px 12px 8px;
+    box-sizing: border-box;
+	height: 35px;
+    border-radius: 3px;
+	margin: 0;
+	border: 1px solid #333333;
+	color: #333333;
+	background: #ffffff;
+	outline: none;
+}
+.login-button {
+	margin-left: 202px;
+	margin-top: 20px;
+}
+
+.checkbox {
+	font-size: 14px;
+	line-height: 25px;
+	display: inline-block;
+	color: #333333;
+}
+.login-checkbox {
+	margin-left: 20px;
+}
+
+.login-remember {
+	margin-left: 200px;
+	font-weight: 700;
+}
+
+.info-box {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	background-color: #f4f4f4;
+	max-width: 500px;
+	max-height: 150px;
+	overflow: hidden;
+	font-size: 14px;
+	border-radius: 3px;
+}
+.info-box .item-error {
+	padding: 0px 10px;
+	background-color: #ffc3c3;
+	line-height: 1.2;
+	color: #a02e2e;
+}

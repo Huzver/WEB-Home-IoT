@@ -1,8 +1,5 @@
 <?php
 
-// Подключаем модель Пользователей для контроллера
-include_once(MDIR.'/models/users.php');
-
 class users_controller {
 
 	// Список всех пользователей
@@ -35,7 +32,41 @@ class users_controller {
 
 	// Авторизация на сайте
 	public function actionLogin() {
-		echo "<br>Авторизация пользователя";
+		
+		$email = '';
+		$password = '';
+		$remember = false;
+		
+		$errors = false;
+		
+		// Проверяем полученные данные
+		if (isset($_POST['login'])) {
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			
+			// Работаем с email адресом
+			if (Users::checkEmail($email)) {
+				echo "<br>email ok!";
+			} else {
+				$errors[] = "Email некорректен";
+			}
+			
+			// Работаем с паролем
+			if (Users::checkPassword($password)) {
+				echo "<br>password ok!";
+			} else {
+				$errors[] = "Пароль не должен быть короче 8-ми символов";
+			}
+			
+			// Работаем с пунктом "запомнить меня"
+			if (isset($_POST['remembermy'])) {
+				$remember = true;
+			}
+		}
+		
+		// Подключаем шаблон для вывода
+		require_once(MDIR.'/views/users/login.php');
+		
 		return true;
 	}
 

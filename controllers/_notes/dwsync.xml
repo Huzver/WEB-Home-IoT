@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="news.php" server="192.168.88.13//iot/" local="131721012960000000" remote="131721012960000000" Dst="0" />
-<file name="news_controller.php" server="192.168.88.13//iot/" local="131721018755311650" remote="131721019750000000" Dst="0" />
-<file name="products_controller.html" server="192.168.88.13//iot/" local="131721014430000000" remote="131721014430000000" Dst="0" />
-<file name="products_controller.php" server="192.168.88.13//iot/" local="131721018904423009" remote="131721019900000000" Dst="0" />
-<file name="users_controller.php" server="192.168.88.13//iot/" local="131721159185064268" remote="131721160180000000" Dst="0" />
+<file name="users_controller.php" server="192.168.88.13//iot/" local="131721887141112575" remote="131721888130000000" Dst="0" />
+<file name="main_controller.php" server="192.168.88.13//iot/" local="131721452859601886" remote="131721453850000000" Dst="0" />
 </dwsync>

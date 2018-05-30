@@ -8,13 +8,9 @@
 
 	// 2. Подключение файлов системы
 	define('MDIR',dirname(__FILE__));
-	require_once(MDIR.'/components/db.php');
-	require_once(MDIR.'/components/router.php');
+	require_once(MDIR.'/components/Autoload.php');
 
-	// 3. Установка соединения с БД
-	
-
-	// 4. Вызов Router
+	// 3. Вызов Router
 	$router = new Router();
 	$router->run();
 
