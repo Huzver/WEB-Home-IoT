@@ -1,9 +1,16 @@
+<?php
+if (!empty($addPageTitle)) {
+	$pageTitle = 'HWI: '.$addPageTitle;
+} else {
+	$pageTitle = 'HWI: Главная';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
 		<meta charset="utf-8" />
-		<title>HWI: Главная</title>
-		
+		<title><?php echo $pageTitle; ?></title>
 		<link rel="apple-touch-icon" sizes="57x57" href="/templates/images/favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="/templates/images/favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="/templates/images/favicon/apple-icon-72x72.png">
@@ -17,12 +24,13 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="/templates/images/favicon/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="96x96" href="/templates/images/favicon/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/templates/images/favicon/favicon-16x16.png">
+		<link rel="icon" href="/templates/images/favicon/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/templates/images/favicon/favicon.ico" type="image/x-icon" />
 		<link rel="manifest" href="/templates/images/favicon/manifest.json">
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/templates/images/favicon/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
-		
 		<link href="/templates/css/main.css" rel="stylesheet" type="text/css" />
 	</head>
-
 	<body>
+		<div id="wrapper">

@@ -12,6 +12,7 @@ html, body {
 	font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 	color: #000000;
 	font-weight: 400;
+	background-image: url(/templates/images/backgrounds/work-place.png);
 	background-color: #EDEEF0;
 }
 table, center, div, tr, td {
@@ -27,6 +28,10 @@ input, input:focus, textarea, textarea:focus {
 a {
 	text-decoration: none;
 	color: #2781b4;
+}
+#wrapper {
+	width: 100%;
+	height: 100%;
 }
 .button {
 	display: inline-block;
@@ -190,7 +195,7 @@ a {
 }
 .info-box .item-error {
 	padding: 0px 10px;
-	background-color: #ffc3c3;
-	line-height: 1.2;
-	color: #a02e2e;
+	background-color: #ffe7e7;
+	line-height: 2;
+	color: #b50000;
 }

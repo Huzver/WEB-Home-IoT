@@ -1,4 +1,5 @@
 <?php
+$addPageTitle = 'Авторизация';
 include_once(MDIR.'/views/layouts/header.php');
 ?>
 

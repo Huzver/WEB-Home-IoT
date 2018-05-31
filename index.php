@@ -4,7 +4,10 @@
 
 	// 1. Общие настройки
 	ini_set('display_errors',1); // Включаем отображение ошибок
-	error_reporting(E_ALL);	
+	error_reporting(E_ALL);
+
+	// Стартуем Сессию
+	session_start();
 
 	// 2. Подключение файлов системы
 	define('MDIR',dirname(__FILE__));

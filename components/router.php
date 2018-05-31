@@ -53,37 +53,26 @@ class Router {
 				// Получаем имя метода (Action-а)
 				$actionName = "action".ucfirst(array_shift($segments));
 				
-				if ($cookie != true AND $actionName != 'actionRemember') {
-					// Cookie отсутствует
-					
-					// Открываем страницу Авторизации
-					$controllerName = "users_controller";
-					$actionName = "actionLogin";
-					$parameters = $segments;
-					$controllerFile = MDIR."/controllers/".$controllerName.".php";
-					if (file_exists($controllerFile)) {
-						include_once($controllerFile);
-					}
-					$controllerObject = new $controllerName;
-					$result = call_user_func_array(array($controllerObject, $actionName), $parameters);
+				// Получаем остальные параметры
+				$parameters = $segments;
 
-				} else {
-					// Cookie на месте
+				// 3. Подключаем файл класса контроллера
+				$controllerFile = MDIR."/controllers/".$controllerName.".php";
+				if (file_exists($controllerFile)) {
+					include_once($controllerFile);
+				}
 
-					// Получаем остальные параметры
-					$parameters = $segments;
+				// 4. Создаем объект и вызываем метод (т.е. Action)
+				$controllerObject = new $controllerName;
 
-					// 3. Подключаем файл класса контроллера
-					$controllerFile = MDIR."/controllers/".$controllerName.".php";
-					if (file_exists($controllerFile)) {
-						include_once($controllerFile);
-					}
-
-					// 4. Создаем объект и вызываем метод (т.е. Action)
-					$controllerObject = new $controllerName;
-
-					$result = call_user_func_array(array($controllerObject, $actionName), $parameters);
-					
+				$result = call_user_func_array(array($controllerObject, $actionName), $parameters);
+				
+				if ($result == false) {
+					header("Location: /404/");
+					// Установить в контроллере страниц
+					//header("HTTP/1.0 404 Not Found");
+					//header("HTTP/1.1 404 Not Found");
+					//header("Status: 404 Not Found");
 				}
 
 				if ($result != null) {
