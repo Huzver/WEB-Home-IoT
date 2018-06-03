@@ -67,13 +67,13 @@ class Router {
 
 				$result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 				
-				if ($result == false) {
+				/*if ($result == false) {
 					header("Location: /404/");
 					// Установить в контроллере страниц
 					//header("HTTP/1.0 404 Not Found");
 					//header("HTTP/1.1 404 Not Found");
 					//header("Status: 404 Not Found");
-				}
+				}*/
 
 				if ($result != null) {
 					break;

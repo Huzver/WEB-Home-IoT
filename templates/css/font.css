@@ -1,0 +1,104 @@
+/*
+
+CSS Стили для подключения SVG иконок и Шрифтов
+
+*/
+@font-face {
+		font-family: Roboto;
+		src: url("/templates/css/font/RobotoRegular/RobotoRegular.eot");
+		src: url("/templates/css/font/RobotoRegular/RobotoRegular.eot?#iefix")format("embedded-opentype"),
+		url("/templates/css/font/RobotoRegular/RobotoRegular.woff") format("woff"),
+		url("/templates/css/font/RobotoRegular/RobotoRegular.ttf") format("truetype");
+		font-style: normal;
+		font-weight: 400;
+}
+
+@font-face {
+		font-family: Roboto;
+		src: url("/templates/css/font/RobotoLight/RobotoLight.eot");
+		src: url("/templates/css/font/RobotoLight/RobotoLight.eot?#iefix")format("embedded-opentype"),
+		url("/templates/css/font/RobotoLight/RobotoLight.woff") format("woff"),
+		url("/templates/css/font/RobotoLight/RobotoLight.ttf") format("truetype");
+		font-style: normal;
+		font-weight: 300;
+}
+
+@font-face {
+		font-family: Roboto;
+		src: url("/templates/css/font/RobotoMedium/RobotoMedium.eot");
+		src: url("/templates/css/font/RobotoMedium/RobotoMedium.eot?#iefix")format("embedded-opentype"),
+		url("/templates/css/font/RobotoMedium/RobotoMedium.woff") format("woff"),
+		url("/templates/css/font/RobotoMedium/RobotoMedium.ttf") format("truetype");
+		font-style: normal;
+		font-weight: 500;
+}
+
+@font-face {
+		font-family: Roboto;
+		src: url("/templates/css/font/RobotoBold/RobotoBold.eot");
+		src: url("/templates/css/font/RobotoBold/RobotoBold.eot?#iefix")format("embedded-opentype"),
+		url("/templates/css/font/RobotoBold/RobotoBold.woff") format("woff"),
+		url("/templates/css/font/RobotoBold/RobotoBold.ttf") format("truetype");
+		font-style: normal;
+		font-weight: 700;
+}
+
+@font-face {
+  font-family: 'hwi';
+  src: url('/templates/css/font/hwi.eot?98417604');
+  src: url('/templates/css/font/hwi.eot?98417604#iefix') format('embedded-opentype'),
+       url('/templates/css/font/hwi.woff2?98417604') format('woff2'),
+       url('/templates/css/font/hwi.woff?98417604') format('woff'),
+       url('/templates/css/font/hwi.ttf?98417604') format('truetype'),
+       url('/templates/css/font/hwi.svg?98417604#hwi') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "hwi";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-key:before { content: '\e800'; }
+.icon-login:before { content: '\e801'; }
+.icon-menu:before { content: '\e802'; }
+.icon-logout:before { content: '\e803'; }
+.icon-chart:before { content: '\e804'; }
+.icon-settings:before { content: '\e805'; }
+.icon-user:before { content: '\e806'; }
+.icon-system:before { content: '\e807'; }
+.icon-logic:before { content: '\e808'; }
+.icon-mail-alt:before { content: '\f0e0'; }
+.icon-objects:before { content: '\f247'; }
+.icon-sensor:before { content: '\f2c7'; }

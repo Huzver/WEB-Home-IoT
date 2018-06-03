@@ -19,8 +19,12 @@ class Users {
 				u.`email` `user_email`,
 				g.`id` `group_id`,
 				g.`name` `group_name`,
-				g.`alias` `group_full_name`
-			FROM `users` `u`, `groups` `g`
+				g.`alias` `group_full_name`,
+				tz.`offset` `user_time_zone_offset`,
+				tz.`name` `user_time_zone_name`
+			FROM `users` `u`
+            LEFT JOIN `groups` `g` ON g.`id` = u.`group_id`
+            LEFT JOIN `time_zones` `tz` ON tz.`id` = u.`time_zone`
 			WHERE u.`id`='.$userId.'
 		');
 		// Оставим только буквенный вариант выборки
@@ -185,6 +189,28 @@ class Users {
 			return $_SESSION['userId'];
 		}
 		header("Location: /login/");
+	}
+	
+	// 9. Проверка является ли пользователь Администратором
+	public static function isAdmin($userId) {
+		
+		// Подключаемся к базе данных
+		$db = Db::getConnection();
+		
+		// Заправшиваем группу пользователя и сверяем ей с Админ группой
+		$sql = 'SELECT `group_id` FROM `users` WHERE `id` = :id';
+		
+		// Обработка запроса в базу
+		$result = $db->prepare($sql);
+		$result->bindParam(':id', $userId, PDO::PARAM_INT);
+		$result->execute();
+		
+		$userData = $result->fetch();
+		
+		if ($userData['group_id'] == 1) {
+			return true;
+		}
+		return false;
 	}
 }
 

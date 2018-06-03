@@ -61,7 +61,9 @@ class users_controller {
 		
 		// Очищаем данные Сессии
 		unset($_SESSION['userId'],$_SESSION['userHash'],$_SESSION['userRemember']);
-		header("Location: /login/");
+		
+		// Отправляем на главную страницу
+		header("Location: /");
 	}
 
 	// 3. Личный кабинет пользователя

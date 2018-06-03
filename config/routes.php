@@ -17,6 +17,13 @@
 		// Напоминание пароля с главной страницы
 		//'remember' => 'users/remember', // users_controller => actionRemember
 		
+		// 2. Страницы настроек панели и информации о сервере на котором стоит ситсема
+		// 2.1 Общая страница настроек
+		'settings' => 'main/settings', // main_controller => actionSettings
+		
+		// 998. Получение времени через AJAX запрос
+		'time/([\-0-9]+)' => 'main/time/$1', // main_controller => actionTime
+		
 		// 999. Главная страница
 		'' => 'main/index', // main_controller => actionIndex
 	);

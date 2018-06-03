@@ -7,13 +7,13 @@ include_once(MDIR.'/views/layouts/header.php');
 <div class="login-body">
 	<div class="login-box">
 		<div class="login-main">
-			<div class="logo"></div>
-			<div class="title">Авторизация</div>
+			<a href="/"><div class="logo"></div></a>
+			<div class="title icon-login">Авторизация</div>
 			<form action="#" method="post">
-				<label class="login-label">
+				<label class="login-label icon-mail-alt">
 					<input type="email" name="email" placeholder="Ваш email" value="<?php echo $email;?>"/>
 				</label>
-				<label class="login-label">
+				<label class="login-label icon-key">
 					<input type="password" name="password" placeholder="Пароль" value="<?php echo $password;?>" />
 				</label>
 				<label class="checkbox login-checkbox">
