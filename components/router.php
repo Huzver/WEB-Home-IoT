@@ -20,10 +20,10 @@ class Router {
 	// Метод определения наличия Cookie после авторизации
 	// Если Cookie нет, то считаем авторизацию не пройденной и направляем на страницу логина
 	public function getAuthorization() {
-		if (!isset($_COOKIE['loginHash']) AND !isset($_COOKIE['userId'])) {
+		if (!isset($_COOKIE['userHash'])) {
 			return false;
 		} else {
-			return true;
+			return $_COOKIE['userHash'];
 		}
 	}
 	
@@ -64,16 +64,15 @@ class Router {
 
 				// 4. Создаем объект и вызываем метод (т.е. Action)
 				$controllerObject = new $controllerName;
-
+				
+				if(!$cookie AND $actionName != 'actionLogin') {
+					header("Location: /login/");
+				} else {
+					$GLOBALS['userId'] = Users::checkLogin($cookie);
+				}
+				
 				$result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 				
-				/*if ($result == false) {
-					header("Location: /404/");
-					// Установить в контроллере страниц
-					//header("HTTP/1.0 404 Not Found");
-					//header("HTTP/1.1 404 Not Found");
-					//header("Status: 404 Not Found");
-				}*/
 
 				if ($result != null) {
 					break;

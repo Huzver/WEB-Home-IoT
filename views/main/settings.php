@@ -9,7 +9,7 @@ include_once(MDIR.'/views/layouts/leftmenu.php');
 	
 	<!-- Информация о сервере -->
 	<div class="module-box">
-		<div class="module-title">Данные о сервере</div>
+		<div class="module-title">Информация о сервере</div>
 		<div class="module-content">
 			<?php foreach ($serverInfo AS $index => $value) { ?>
 				<div class="item"><strong><?php echo $index.":</strong> - ".$value; ?></div>
@@ -18,10 +18,12 @@ include_once(MDIR.'/views/layouts/leftmenu.php');
 		<div class="module-footer"></div>
 	</div>
 	
-	<!-- Настройки сервера -->
+	<!-- Настройки панели -->
 	<div class="module-box">
-		<div class="module-title">Настройки</div>
-		<div class="module-content"></div>
+		<div class="module-title">Настройки панели</div>
+		<div class="module-content">
+			
+		</div>
 		<div class="module-footer"></div>
 	</div>
 </div>

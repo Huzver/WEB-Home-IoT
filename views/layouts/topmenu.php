@@ -1,11 +1,7 @@
 <?php
-
-// Проверяем, авторизирован ли пользователь
-$userId = Users::checkLogin();
-
 // Получаем нужные данные о пользователе
-if ($userId) {
-	$userData = Users::getUserById($userId);
+if (isset($GLOBALS['userId'])) {
+	$userData = Users::getUserById($GLOBALS['userId']);
 }
 
 // Получаем массив данных о сегодняешнем дне
@@ -24,7 +20,7 @@ $nowDate = Site::getNowDate(time(), $userData['user_time_zone_offset'], $userDat
 		</div>
 	</div>
 	<a class="logout icon-logout" href="/logout/" title="ВЫХОД"></a>
-	<?php if (Users::isAdmin($userId) != false) { ?>
+	<?php if (Users::isAdmin($GLOBALS['userId']) != false) { ?>
 		<!-- Только для Администраторов -->
 		<a class="settings icon-settings" href="/settings/" title="Системные настройки"></a>
 	<?php } ?>

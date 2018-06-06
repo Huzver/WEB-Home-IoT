@@ -107,6 +107,8 @@ class Site {
 			$mysqlVersion = 'На данный момент поддерживаются команды Linux OS';
 		}
 		$serverInfo['Версия MySQL'] = $mysqlVersion;
+		// Время сервера
+		$serverInfo['Дата и время сервера'] = '(UTC +00:00) '.date('d.m.Y - H:i', time()).' / UnixTime('.time().')';
 		
 		// Возвращаем массив
 		return $serverInfo;

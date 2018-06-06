@@ -178,17 +178,34 @@ class Users {
 		// Записываем в сессию ID пользователя, Хэш и статус запоминания на сайте
 		$_SESSION['userId'] = $userId;
 		$_SESSION['userHash'] = $userHash;
-		$_SESSION['userRemember'] = $remember;
+		
+		$userData = self::getUserById($userId);
+		$timeZoneOffset = $userData['user_time_zone_offset']*3600;
+		$time = time()+$timeZoneOffset;
+		
+		// Запомнить меня
+		if ($remember == 1) {
+			// Пишем Хэш в Куку на неделю вперед
+			setcookie("userHash", $userHash, $time+(10*365*24*60*60), "/");
+		} else {
+			// Пишем Хэш на 24 часа вперед
+			setcookie("userHash", $userHash, $time+86400, "/");
+		}
 	}
 	
 	// 8. Проверка авторизации пользователя
-	public static function checkLogin() {
+	public static function checkLogin($userHash) {
 		
-		// Если сессия есть, проверяем наличие ID пользователя и сверяем его hash
-		if (isset($_SESSION['userId']) AND isset($_SESSION['userHash'])) {
+		// $userHash получаем из COOKIE в /components/Router.php
+		// Сверяем COOKIE userHash с SESSION userHash, если совпадают отдаем SESSION userId
+		
+		if (isset($_SESSION['userHash']) AND ($userHash == $_SESSION['userHash'])) {
 			return $_SESSION['userId'];
 		}
-		header("Location: /login/");
+		
+		// Иначе FALSE
+		return false;
+		
 	}
 	
 	// 9. Проверка является ли пользователь Администратором

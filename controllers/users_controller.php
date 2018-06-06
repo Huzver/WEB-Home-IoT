@@ -7,7 +7,6 @@ class users_controller {
 		
 		$email = '';
 		$password = '';
-		$remember = false;
 		
 		$errors = false;
 		
@@ -31,7 +30,9 @@ class users_controller {
 			
 			// Работаем с пунктом "запомнить меня"
 			if (isset($_POST['remembermy'])) {
-				$remember = true;
+				$remember = 1;
+			} else {
+				$remember = 0;
 			}
 			
 			// Проверяем существует ли такой пользователь по email и паролю
@@ -59,8 +60,11 @@ class users_controller {
 	// 2. Выход с сайта
 	public function actionLogout() {
 		
-		// Очищаем данные Сессии
-		unset($_SESSION['userId'],$_SESSION['userHash'],$_SESSION['userRemember']);
+		// Очищаем данные Сессии и Кук
+		session_unset();
+		session_destroy();
+		setcookie('userHash', "", time()-31556926, "/");
+		setcookie('PHPSESSID', "", time()-31556926, "/");
 		
 		// Отправляем на главную страницу
 		header("Location: /");
