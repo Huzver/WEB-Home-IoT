@@ -7,6 +7,11 @@ include_once(MDIR.'/views/layouts/leftmenu.php');
 
 <div id="content-box">
 	Содержание
+	
+	<pre>
+	<?php $xportlist = stream_get_transports(); ?>
+	<?php print_r($xportlist); ?>
+	</pre>
 </div>
 
 

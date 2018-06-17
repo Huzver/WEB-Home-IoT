@@ -30,7 +30,7 @@ class Router {
 	public function run() {
 		
 		// Проверяем есть ли у пользователя Cookie
-		$cookie = $this->getAuthorization();
+		$userHash = $this->getAuthorization();
 
 		// 1. Получаем строку запроса
 		// Например: http://iot.gregory-gost.ru/news
@@ -65,10 +65,10 @@ class Router {
 				// 4. Создаем объект и вызываем метод (т.е. Action)
 				$controllerObject = new $controllerName;
 				
-				if(!$cookie AND $actionName != 'actionLogin') {
+				if($userHash == false AND $actionName != 'actionLogin') {
 					header("Location: /login/");
 				} else {
-					$GLOBALS['userId'] = Users::checkLogin($cookie);
+					$GLOBALS['userId'] = Users::checkLogin($userHash);
 				}
 				
 				$result = call_user_func_array(array($controllerObject, $actionName), $parameters);

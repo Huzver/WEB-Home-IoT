@@ -10,6 +10,7 @@
 			<?php endif; ?>
 		</div>
 		<script src="/templates/js/jquery-3.3.1.min.js"></script>
+		<script src="/templates/js/chart.bundle.min.js"></script>
 		<script src="/templates/js/main.js"></script>
 		<script>
 			$(document).ready(function(){

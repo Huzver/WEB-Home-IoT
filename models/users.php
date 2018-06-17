@@ -197,15 +197,28 @@ class Users {
 	public static function checkLogin($userHash) {
 		
 		// $userHash получаем из COOKIE в /components/Router.php
-		// Сверяем COOKIE userHash с SESSION userHash, если совпадают отдаем SESSION userId
 		
-		if (isset($_SESSION['userHash']) AND ($userHash == $_SESSION['userHash'])) {
-			return $_SESSION['userId'];
+		// Проверяем есть ли данные в $_SESSION
+		if (!isset($_SESSION['userHash']) AND !isset($_SESSION['userId'])) {
+			// Данных в сессии нет, но есть кука с userHash
+			// Достаем данные из базы для записи в сессию
+			$db = Db::getConnection();
+			$sql = 'SELECT `id` FROM `users` WHERE `hash` = :hash';
+			$result = $db->prepare($sql);
+			$result->bindParam(':hash', $userHash, PDO::PARAM_STR);
+			$result->execute();
+			$userDataCheck = $result->fetch();
+			$userId = $userDataCheck['id'];
+			
+			$_SESSION['userHash'] = $userHash;
+			$_SESSION['userId'] = $userId;
+		} else {
+			// Проверяем соответствие хеша куки с хешем сессии
+			if ($userHash == $_SESSION['userHash']) {
+				return $_SESSION['userId'];
+			}
+			return false;
 		}
-		
-		// Иначе FALSE
-		return false;
-		
 	}
 	
 	// 9. Проверка является ли пользователь Администратором

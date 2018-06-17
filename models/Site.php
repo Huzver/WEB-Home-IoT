@@ -109,11 +109,51 @@ class Site {
 		$serverInfo['Версия MySQL'] = $mysqlVersion;
 		// Время сервера
 		$serverInfo['Дата и время сервера'] = '(UTC +00:00) '.date('d.m.Y - H:i', time()).' / UnixTime('.time().')';
+		// Всего места на диске
+		$serverInfo['Всего места на сервере'] = self::convertSize(disk_total_space(MDIR));
+		// Занято места на диске
+		$serverInfo['Занято места на сервере'] = self::convertSize(disk_total_space(MDIR) - disk_free_space(MDIR));
+		// Свободно места в папке сервера
+		$serverInfo['Свободно места на сервере'] = self::convertSize(disk_free_space(MDIR));
 		
 		// Возвращаем массив
 		return $serverInfo;
 	}
 	
+	// 4. Получение места в папке
+	public static function convertSize($num) {
+		
+		$kib = 1024;
+		$mib = $kib*1024;
+		$gib = $mib*1024;
+		$teb = $gib*1024;
+
+		if ($num <= $kib) {
+			// Байт
+			$convert = round($num, 2).' Bite';
+			
+		} elseif ($num > $kib AND $num < $mib) {
+			// Килобайт
+			$convert = round(($num/$kib), 2).' KiB';
+			
+		} elseif ($num > $mib AND $num < $gib) {
+			// Мегабайт
+			$convert = round(($num/$mib), 2).' MiB';
+			
+		} elseif ($num > $gib AND $num < $teb) {
+			// Гигобайт
+			$convert = round(($num/$gib), 2).' GiB';
+			
+		} elseif ($num > $teb) {
+			// Терабайт
+			$convert = round(($num/$teb), 2).' TB';
+		} else {
+			
+			$convert = 'Невозможно расчитать свободное место';
+		}
+		
+		return $convert;
+	}
 }
 
 ?>
