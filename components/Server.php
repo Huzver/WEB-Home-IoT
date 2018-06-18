@@ -18,7 +18,12 @@ if ($argv[1] == "START") {
 			break;
 		}
 		
-		$message = 'OK';
+		$biteStart = bin2hex(170);
+		$message = bin2hex($data);
+		$biteStop = bin2hex(85);
+		
+		$message = $biteStart.$message.$biteStop;
+		
 		stream_socket_sendto($socket, $message, 0, $peer);
 		
 	} while ($data !== false);

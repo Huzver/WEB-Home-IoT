@@ -1,9 +1,14 @@
 <?php
 include_once(MDIR.'/views/layouts/header.php');
 include_once(MDIR.'/views/layouts/topmenu.php');
-include_once(MDIR.'/views/layouts/leftmenu.php');
 ?>
 
+<div id="left-menu-box">
+	<div class="left-menu-inner">
+		<a href="/settings/">Все данные</a>
+		<a href="/settings/events/">Системные события</a>
+	</div>
+</div>
 
 <div id="content-box">
 	

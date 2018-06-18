@@ -1,16 +1,20 @@
 <?php
 include_once(MDIR.'/views/layouts/header.php');
 include_once(MDIR.'/views/layouts/topmenu.php');
-include_once(MDIR.'/views/layouts/leftmenu.php');
 ?>
 
+<div id="left-menu-box">
+	<div class="left-menu-inner">
+		<a href="/">Панель данных</a>
+		<a href="/all-events/">Все события</a>
+	</div>
+</div>
 
 <div id="content-box">
 	Содержание
 	
 	<pre>
-	<?php $xportlist = stream_get_transports(); ?>
-	<?php print_r($xportlist); ?>
+	
 	</pre>
 </div>
 
